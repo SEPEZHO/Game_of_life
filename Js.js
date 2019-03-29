@@ -3,6 +3,11 @@ var ctx = canvas.getContext('2d');
 var mas = [];
 var count = 0;
 var timer;
+var range = document.getElementById('range');
+
+function run() {
+
+}
 // При клике на игровом поле мы должны подставить героя.
 canvas.onclick = function (event) {
   var x = event.offsetX; // кордината определяется относительно кенваса
@@ -67,9 +72,15 @@ function startLife() {
   }
   mas = mas2;
   drawField();
+  reset();
+}
+
+function reset() {
   count++;
   document.getElementById('count').innerHTML = count;
-  timer = setTimeout(startLife, 10);
+  timer = setTimeout(startLife, reset);
+  var p = document.getElementById('p');
+  p.innerHTML = range.value;
 }
 
 function fpm(i) {
