@@ -4,10 +4,6 @@ var mas = [];
 var count = 0;
 var timer;
 var range = document.getElementById('range');
-
-function run() {
-
-}
 // При клике на игровом поле мы должны подставить героя.
 canvas.onclick = function (event) {
   var x = event.offsetX; // кордината определяется относительно кенваса
@@ -78,7 +74,8 @@ function startLife() {
 function reset() {
   count++;
   document.getElementById('count').innerHTML = count;
-  timer = setTimeout(startLife, reset);
+  var speed = range.value;
+  timer = setTimeout(startLife, speed);
   var p = document.getElementById('p');
   p.innerHTML = range.value;
 }
