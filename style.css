@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
 }
@@ -9,12 +9,14 @@
   border: 4px solid black;
   background: white;
 }
-body{
+
+body {
   background: black;
   color: white;
   margin: 40px;
 }
-div{
+
+div {
   position: absolute;
   left: 50%;
   transform: translate(-50%);

@@ -1,6 +1,7 @@
 var canvas = document.getElementById('c1'); // получим canvas
 var ctx = canvas.getContext('2d');
 var mas = [];
+var mas2 = [];
 var count = 0;
 var timer;
 var range = document.getElementById('range');
@@ -86,16 +87,50 @@ function startLife() {
   }
   mas = mas2;
   drawField();
-  reset();
+  reset()
 }
 
 function reset() {
   count++;
   document.getElementById('count').innerHTML = count;
   var speed = range.value;
-  timer = setTimeout(startLife, speed);
+  timer = setTimeout(startLife, 1000 / 60);
   var p = document.getElementById('p');
   p.innerHTML = range.value;
+}
+
+function stopLife() {
+  clearTimeout(timer);
+}
+
+function resetLife() {
+  ctx.clearRect(0, 0, width, height);
+  var n = width,
+    m = height;
+  for (var i = 0; i < n; i++) {
+    for (var j = 0; j < m; j++) {
+      mas[i][j] = 0;
+    }
+  }
+  count = 0;
+  document.getElementById('count').innerHTML = count;
+  stroke();
+  stopLife();
+  console.log('Reset');
+}
+
+function randLife() {
+  resetLife();
+  for (var i = 0; i < width; i++) {
+    for (var j = 0; j < height; j++) {
+      var randInt = Math.floor(Math.random() * 2) + 0;
+      mas[i][j] = randInt;
+      if (mas[i][j] == 1) {
+        ctx.fillStyle = 'black';
+        ctx.fillRect(j * 10, i * 10, 10, 10);
+      }
+    }
+  }
 }
 
 function fpm(i) {
@@ -108,3 +143,6 @@ function fpp(i) {
   else return i;
 }
 document.getElementById('start').onclick = startLife;
+document.getElementById('stop').onclick = stopLife;
+document.getElementById('res').onclick = resetLife;
+document.getElementById('rand').onclick = randLife;
