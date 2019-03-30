@@ -9,19 +9,19 @@
 </head>
 
 <body>
-  <canvas id="c1" width="300" height="300"></canvas>
+  <div>
+  <canvas id="c1" width="800" height="600"></canvas>
   <p>Количество циклов: <span id="count">0</span></p>
   <button id="start">Start</button>
 
-  <input type="range" list="marks" min='0' max='1000' step='100' id='range' oninput="reset()"></input>
+  <input type="range" list="marks" min='100' max='1000' step='100' id='range' oninput="reset()"></input>
   <datalist id="marks">
     <option value='25'>
     <option value='50' label="50%">
     <option value='75'>
-
   </datalist>
   <p id='p'> </p>
-
+</div>
 </body>
 
 </html>
