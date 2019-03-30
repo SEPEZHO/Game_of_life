@@ -48,7 +48,7 @@ function stroke() {
 stroke();
 
 function drawField() {
-  ctx.clearRect(0, 0, width, height);
+  //ctx.clearRect(0, 0, width, height);
   stroke();
   for (var i = 0; i < width; i++) {
     for (var j = 0; j < height; j++) {
@@ -59,6 +59,7 @@ function drawField() {
     }
   }
 }
+
 // Моделирование жизни.
 function startLife() {
   var mas2 = [];
@@ -83,6 +84,11 @@ function startLife() {
           mas2[i][j] = 0;
         }
       }
+      if(mas[i][j] == 1 && mas2[i][j] == 0){
+        ctx.fillStyle = 'rgb(180, 180, 180)';
+        ctx.fillRect(j * 10, i * 10, 10, 10);
+
+      }
     }
   }
   mas = mas2;
@@ -94,7 +100,7 @@ function reset() {
   count++;
   document.getElementById('count').innerHTML = count;
   var speed = range.value;
-  timer = setTimeout(startLife, 1000 / 60);
+  timer = setTimeout(startLife, 25);
   var p = document.getElementById('p');
   p.innerHTML = range.value;
 }
