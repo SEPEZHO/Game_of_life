@@ -13,11 +13,11 @@ canvas.onclick = function (event) {
   var y = event.offsetY;
   console.log(x);
   console.log(y);
-  // Координаты при клике определяются от 0 до 30.
-  x = Math.floor(x / 10); // 300:10 = 30
+  x = Math.floor(x / 10);
   y = Math.floor(y / 10);
   (mas[y][x] == 0) ? mas[y][x] = 1: mas[y][x] = 0; // поле, при клике на которое, ставится 1, а если там 1 - то ставится 0
   console.log(mas);
+  ctx.clearRect(0, 0, width, height);
   drawField();
 }
 // Создадим игровое поле.
@@ -84,10 +84,9 @@ function startLife() {
           mas2[i][j] = 0;
         }
       }
-      if(mas[i][j] == 1 && mas2[i][j] == 0){
+      if (mas[i][j] == 1 && mas2[i][j] == 0) {
         ctx.fillStyle = 'rgb(180, 180, 180)';
         ctx.fillRect(j * 10, i * 10, 10, 10);
-
       }
     }
   }
@@ -111,8 +110,8 @@ function stopLife() {
 
 function resetLife() {
   ctx.clearRect(0, 0, width, height);
-  var n = width,
-    m = height;
+  var n = width;
+  var m = height;
   for (var i = 0; i < n; i++) {
     for (var j = 0; j < m; j++) {
       mas[i][j] = 0;
