@@ -4,8 +4,8 @@ var mas = [];
 var count = 0;
 var timer;
 var range = document.getElementById('range');
-var width = 800;
-var height = 600;
+var width = 1200;
+var height = 720;
 // При клике на игровом поле мы должны подставить героя.
 canvas.onclick = function (event) {
   var x = event.offsetX; // кордината определяется относительно кенваса
