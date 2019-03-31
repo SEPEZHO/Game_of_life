@@ -28,6 +28,12 @@ canvas.onclick = function (event) {
   drawField();
 }
 
+// mas.mouseover = function () {
+//   ctx.fillRect(j * 10, i * 10, 9.9, 9.9);
+//
+// }
+
+
 function goLife() {
   var n = width,
     m = height;
@@ -49,10 +55,9 @@ function stroke() {
     ctx.moveTo(0, y);
     ctx.lineTo(width, y);
   }
-  ctx.strokeStyle = 'hsl(0, 0%, 50%)';
+  ctx.strokeStyle = 'black';
   ctx.stroke();
 }
-stroke();
 
 // document.getElementById('randColor').onclick = function ColorR(){
 //   var r = Math.floor(Math.random() * (256)),
@@ -103,7 +108,7 @@ function startLife() {
         }
       }
       if (mas[i][j] == 1 && mas2[i][j] == 0) {
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = 'hsl(0, 0%, 25%)';
         ctx.fillRect(j * 10, i * 10, 9.9, 9.9);
       }
     }
@@ -118,7 +123,7 @@ function reset() {
   document.getElementById('count').innerHTML = count;
   var speed = range.value;
   var fps = document.getElementById('range');
-  console.log(fps);
+  // console.log(fps);
   timer = setTimeout(startLife, 1000 / fps.value); // тут вместо 25 должна быть переменная speed, но я ее не использую, тк в ней вся проблема.
   var p = document.getElementById('p');
   p.innerHTML = fps.value - 1;
@@ -139,13 +144,13 @@ function resetLife() {
   }
   count = 0;
   document.getElementById('count').innerHTML = count;
-  stroke();
   stopLife();
   console.log('Reset');
 }
 
 function randLife() {
   resetLife();
+
   for (var i = 0; i < width; i++) {
     for (var j = 0; j < height; j++) {
       var randInt = Math.floor(Math.random() * 2) + 0;
@@ -156,6 +161,7 @@ function randLife() {
       }
     }
   }
+  stroke();
 }
 
 function fpm(i) {
