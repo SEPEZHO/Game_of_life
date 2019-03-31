@@ -4,9 +4,9 @@ var mas = [];
 var mas2 = [];
 var count = 0;
 var timer;
-var range = document.getElementById('range');
 var width = 720;
 var height = 360;
+var fps = document.getElementById('range');
 
 canvas.onclick = function (event) {
   var x = event.offsetX;
@@ -116,13 +116,12 @@ function startLife() {
 function reset() {
   count++;
   document.getElementById('count').innerHTML = count;
-
-  // ПРОБЛЕМА ТУТ ====>
   var speed = range.value;
-  timer = setTimeout(startLife, 1000 / 60); // тут вместо 25 должна быть переменная speed, но я ее не использую, тк в ней вся проблема.
-  // <====
+  var fps = document.getElementById('range');
+  console.log (fps);
+  timer = setTimeout(startLife, 1000/fps.value); // тут вместо 25 должна быть переменная speed, но я ее не использую, тк в ней вся проблема.
   var p = document.getElementById('p');
-  p.innerHTML = range.value;
+  p.innerHTML = fps.value-1;
 }
 
 function stopLife() {
