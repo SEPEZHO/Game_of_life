@@ -118,10 +118,10 @@ function reset() {
   document.getElementById('count').innerHTML = count;
   var speed = range.value;
   var fps = document.getElementById('range');
-  console.log (fps);
-  timer = setTimeout(startLife, 1000/fps.value); // тут вместо 25 должна быть переменная speed, но я ее не использую, тк в ней вся проблема.
+  console.log(fps);
+  timer = setTimeout(startLife, 1000 / fps.value); // тут вместо 25 должна быть переменная speed, но я ее не использую, тк в ней вся проблема.
   var p = document.getElementById('p');
-  p.innerHTML = fps.value-1;
+  p.innerHTML = fps.value - 1;
 }
 
 function stopLife() {
@@ -157,8 +157,6 @@ function randLife() {
     }
   }
 }
-
-
 
 function fpm(i) {
   if (i == 0) return width;
