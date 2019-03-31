@@ -7,9 +7,28 @@
   <link rel="stylesheet" href="style.css" />
   <script src="js.js" defer></script>
 </head>
+
 <body>
-  <canvas id="c1" width="300" height="300"></canvas>
-  <p>Количество циклов: <span id="count">0</span></p>
-  <button id="start">Start</button>
+  <div id='main'>
+    <canvas id="c1" width="1200" height="720"></canvas>
+    <!-- <canvas id="c2" width="1200" height="720"></canvas> -->
+
+    <div id='menu'>
+      <p>Количество циклов: <span id="count">0</span></p>
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+      <button id="rand">Rand</button>
+      <button id="res">Reset</button>
+
+      <input type="range" list="marks" min='100' max='1000' step='100' id='range' oninput="reset()"></input>
+      <datalist id="marks">
+        <option value='25'>
+        <option value='50' label="50%">
+        <option value='75'>
+      </datalist>
+      <p id='p'> </p>
+    </div>
+  </div>
 </body>
+
 </html>
