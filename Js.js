@@ -49,29 +49,29 @@ function stroke() {
     ctx.moveTo(0, y);
     ctx.lineTo(width, y);
   }
-  ctx.strokeStyle = 'black';
+  ctx.strokeStyle = 'hsl(0, 0%, 50%)';
   ctx.stroke();
 }
 stroke();
 
-document.getElementById('randColor').onclick = function ColorR(){
-  var r = Math.floor(Math.random() * (256)),
-      g = Math.floor(Math.random() * (256)),
-      b = Math.floor(Math.random() * (256));
-  ctx.fillStyle = '#' + r.toString(16) + g.toString(16) + b.toString(16);
-  ctx.fillRect(j * 10, i * 10, 10, 10);
-}
+// document.getElementById('randColor').onclick = function ColorR(){
+//   var r = Math.floor(Math.random() * (256)),
+//       g = Math.floor(Math.random() * (256)),
+//       b = Math.floor(Math.random() * (256));
+//   ctx.fillStyle = '#' + r.toString(16) + g.toString(16) + b.toString(16);
+//   ctx.fillRect(j * 10, i * 10, 10, 10);
+// }
 
 function drawField() {
   //ctx.clearRect(0, 0, width, height);
   for (var i = 0; i < width; i++) {
     for (var j = 0; j < height; j++) {
       if (mas[i][j] == 1) {
-        ctx.fillStyle = 'black';
-        ctx.fillRect(j * 10, i * 10, 10, 10);
-    }else if (mas[i][j] == 2) {
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(j * 10, i * 10, 10, 10);
+        ctx.fillStyle = 'lime';
+        ctx.fillRect(j * 10, i * 10, 9.9, 9.9);
+      } else if (mas[i][j] == 2) {
+        ctx.fillStyle = 'hsl(0, 0%, 25%)';
+        ctx.fillRect(j * 10, i * 10, 9.9, 9.9);
         mas[i][j] = 0;
       }
     }
@@ -103,8 +103,8 @@ function startLife() {
         }
       }
       if (mas[i][j] == 1 && mas2[i][j] == 0) {
-        ctx.fillStyle = 'rgb(255, 186, 122)';
-        ctx.fillRect(j * 10, i * 10, 10, 10);
+        ctx.fillStyle = 'black';
+        ctx.fillRect(j * 10, i * 10, 9.9, 9.9);
       }
     }
   }
@@ -117,9 +117,9 @@ function reset() {
   count++;
   document.getElementById('count').innerHTML = count;
 
-// ПРОБЛЕМА ТУТ ====>
+  // ПРОБЛЕМА ТУТ ====>
   var speed = range.value;
-  timer = setTimeout(startLife, 1000/60);// тут вместо 25 должна быть переменная speed, но я ее не использую, тк в ней вся проблема.
+  timer = setTimeout(startLife, 1000 / 60); // тут вместо 25 должна быть переменная speed, но я ее не использую, тк в ней вся проблема.
   // <====
   var p = document.getElementById('p');
   p.innerHTML = range.value;
@@ -152,8 +152,8 @@ function randLife() {
       var randInt = Math.floor(Math.random() * 2) + 0;
       mas[i][j] = randInt;
       if (mas[i][j] == 1) {
-        ctx.fillStyle = 'black';
-        ctx.fillRect(j * 10, i * 10, 10, 10);
+        ctx.fillStyle = 'lime';
+        ctx.fillRect(j * 10, i * 10, 9.9, 9.9);
       }
     }
   }

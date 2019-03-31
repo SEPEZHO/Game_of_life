@@ -6,7 +6,8 @@
 #c1 {
   width: 720px;
   height: 360px;
-  background: white;
+  background: black;
+  border: 1px hsl(0, 0%, 50%) solid;
   z-index: 0;
 }
 
