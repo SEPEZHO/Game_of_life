@@ -6,11 +6,12 @@
   <title>Игра жизнь</title>
   <link rel="stylesheet" href="style.css" />
   <script src="js.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>
   <div id='main'>
-    <canvas id="c1" width="1200" height="720"></canvas>
+    <canvas id="c1" width="720" height="360"></canvas>
     <!-- <canvas id="c2" width="1200" height="720"></canvas> -->
 
     <div id='menu'>
@@ -19,6 +20,7 @@
       <button id="stop">Stop</button>
       <button id="rand">Rand</button>
       <button id="res">Reset</button>
+      <button id="randColor">RandColor</button>
 
       <input type="range" list="marks" min='100' max='1000' step='100' id='range' oninput="reset()"></input>
       <datalist id="marks">

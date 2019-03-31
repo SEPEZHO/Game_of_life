@@ -5,8 +5,8 @@ var mas2 = [];
 var count = 0;
 var timer;
 var range = document.getElementById('range');
-var width = 1200;
-var height = 720;
+var width = 720;
+var height = 360;
 
 canvas.onclick = function (event) {
   var x = event.offsetX;
@@ -54,6 +54,14 @@ function stroke() {
 }
 stroke();
 
+document.getElementById('randColor').onclick = function ColorR(){
+  var r = Math.floor(Math.random() * (256)),
+      g = Math.floor(Math.random() * (256)),
+      b = Math.floor(Math.random() * (256));
+  ctx.fillStyle = '#' + r.toString(16) + g.toString(16) + b.toString(16);
+  ctx.fillRect(j * 10, i * 10, 10, 10);
+}
+
 function drawField() {
   //ctx.clearRect(0, 0, width, height);
   for (var i = 0; i < width; i++) {
@@ -61,8 +69,7 @@ function drawField() {
       if (mas[i][j] == 1) {
         ctx.fillStyle = 'black';
         ctx.fillRect(j * 10, i * 10, 10, 10);
-      }
-      if (mas[i][j] == 2) {
+    }else if (mas[i][j] == 2) {
         ctx.fillStyle = 'yellow';
         ctx.fillRect(j * 10, i * 10, 10, 10);
         mas[i][j] = 0;
@@ -109,8 +116,11 @@ function startLife() {
 function reset() {
   count++;
   document.getElementById('count').innerHTML = count;
+
+// ПРОБЛЕМА ТУТ ====>
   var speed = range.value;
-  timer = setTimeout(startLife, 25);
+  timer = setTimeout(startLife, 1000/60);// тут вместо 25 должна быть переменная speed, но я ее не использую, тк в ней вся проблема.
+  // <====
   var p = document.getElementById('p');
   p.innerHTML = range.value;
 }
@@ -148,6 +158,8 @@ function randLife() {
     }
   }
 }
+
+
 
 function fpm(i) {
   if (i == 0) return width;
