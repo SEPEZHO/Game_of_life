@@ -4,9 +4,10 @@
 }
 
 #c1 {
-  width: 1200px;
-  height: 720px;
-  background: white;
+  width: 720px;
+  height: 360px;
+  background: black;
+  border: 1px hsl(0, 0%, 50%) solid;
   z-index: 0;
 }
 
@@ -28,8 +29,8 @@ body {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  width: 1200px;
-  height: 720px;
+  width: 720px;
+  height: 360px;
   text-align: center;
 }
 
