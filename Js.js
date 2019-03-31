@@ -1,4 +1,4 @@
-var canvas = document.getElementById('c1'); // получим canvas
+var canvas = document.getElementById('c1');
 var ctx = canvas.getContext('2d');
 var mas = [];
 var mas2 = [];
@@ -7,25 +7,32 @@ var timer;
 var range = document.getElementById('range');
 var width = 1200;
 var height = 720;
-// При клике на игровом поле мы должны подставить героя.
+
 canvas.onclick = function (event) {
-  var x = event.offsetX; // кордината определяется относительно кенваса
+  var x = event.offsetX;
   var y = event.offsetY;
+  var i = x;
+  var j = y;
   console.log(x);
   console.log(y);
   x = Math.floor(x / 10);
   y = Math.floor(y / 10);
-  (mas[y][x] == 0) ? mas[y][x] = 1: mas[y][x] = 0; // поле, при клике на которое, ставится 1, а если там 1 - то ставится 0
+  if (mas[y][x] == 0) {
+    mas[y][x] = 1;
+  } else if (mas[y][x] == 1) {
+    mas[y][x] = 2;
+  }
+  //(mas[y][x] == 0) ? mas[y][x] = 1: ctx.clearRect(y * 10, x * 10, 10, 10);
   console.log(mas);
-  ctx.clearRect(0, 0, width, height);
+  //ctx.clearRect(0, 0, width, height);
   drawField();
 }
-// Создадим игровое поле.
+
 function goLife() {
   var n = width,
-    m = height; // Создадим массив, который имитирует игровое поле.
+    m = height;
   for (var i = 0; i < n; i++) {
-    mas[i] = []; // объявим пустой массив
+    mas[i] = [];
     for (var j = 0; j < m; j++) {
       mas[i][j] = 0;
     }
@@ -49,18 +56,22 @@ stroke();
 
 function drawField() {
   //ctx.clearRect(0, 0, width, height);
-  stroke();
   for (var i = 0; i < width; i++) {
     for (var j = 0; j < height; j++) {
       if (mas[i][j] == 1) {
         ctx.fillStyle = 'black';
         ctx.fillRect(j * 10, i * 10, 10, 10);
       }
+      if (mas[i][j] == 2) {
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(j * 10, i * 10, 10, 10);
+        mas[i][j] = 0;
+      }
     }
   }
+  stroke();
 }
 
-// Моделирование жизни.
 function startLife() {
   var mas2 = [];
   for (var i = 0; i < width; i++) {
@@ -85,7 +96,7 @@ function startLife() {
         }
       }
       if (mas[i][j] == 1 && mas2[i][j] == 0) {
-        ctx.fillStyle = 'rgb(180, 180, 180)';
+        ctx.fillStyle = 'rgb(255, 186, 122)';
         ctx.fillRect(j * 10, i * 10, 10, 10);
       }
     }

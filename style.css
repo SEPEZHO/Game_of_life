@@ -6,21 +6,37 @@
 #c1 {
   width: 1200px;
   height: 720px;
-  border: 4px solid black;
   background: white;
+  z-index: 0;
 }
 
+/* #c2 {
+  position: relative;
+  width: 1200px;
+  height: 720px;
+  top: -724px;
+  background: none;
+  z-index: 1;
+} */
 body {
   background: black;
   color: white;
   margin: 40px;
 }
 
-div {
+#main {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   width: 1200px;
   height: 720px;
+  text-align: center;
+}
+
+#menu {
+  position: relative;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%);
   text-align: center;
 }
