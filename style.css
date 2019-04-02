@@ -4,8 +4,8 @@
 }
 
 #c1 {
-  width: 720px;
-  height: 360px;
+  width: 1280px;
+  height: 720px;
   background: black;
   border: 1px hsl(0, 0%, 50%) solid;
   z-index: 0;
@@ -29,8 +29,8 @@ body {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  width: 720px;
-  height: 360px;
+  width: 1280px;
+  height: 720px;
   text-align: center;
 }
 

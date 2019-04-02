@@ -4,8 +4,8 @@ var mas = [];
 var mas2 = [];
 var count = 0;
 var timer;
-var width = 720;
-var height = 360;
+var width = 1280;
+var height = 720;
 var fps = document.getElementById('range');
 
 canvas.onclick = function (event) {
@@ -75,7 +75,7 @@ function drawField() {
         ctx.fillStyle = 'lime';
         ctx.fillRect(j * 10, i * 10, 9.9, 9.9);
       } else if (mas[i][j] == 2) {
-        ctx.fillStyle = 'hsl(0, 0%, 25%)';
+        ctx.fillStyle = 'hsl(0, 0%, 15%)';
         ctx.fillRect(j * 10, i * 10, 9.9, 9.9);
         mas[i][j] = 0;
       }
@@ -108,7 +108,7 @@ function startLife() {
         }
       }
       if (mas[i][j] == 1 && mas2[i][j] == 0) {
-        ctx.fillStyle = 'hsl(0, 0%, 25%)';
+        ctx.fillStyle = 'hsl(0, 0%, 15%)';
         ctx.fillRect(j * 10, i * 10, 9.9, 9.9);
       }
     }
@@ -124,7 +124,7 @@ function reset() {
   var speed = range.value;
   var fps = document.getElementById('range');
   // console.log(fps);
-  timer = setTimeout(startLife, 1000 / fps.value); // тут вместо 25 должна быть переменная speed, но я ее не использую, тк в ней вся проблема.
+  timer = setTimeout(startLife, 1000 / 21); // тут вместо 25 должна быть переменная speed, но я ее не использую, тк в ней вся проблема.
   var p = document.getElementById('p');
   p.innerHTML = fps.value - 1;
 }
